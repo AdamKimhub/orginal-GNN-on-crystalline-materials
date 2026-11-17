@@ -1,0 +1,8 @@
+ase
+matplotlib
+numpy
+pandas
+pymatgen
+scikit_learn
+torch
+torch_geometric
