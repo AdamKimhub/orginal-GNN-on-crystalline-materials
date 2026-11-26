@@ -176,7 +176,7 @@ def get_c_graph(structure):
     nodes = []
     for i, site in enumerate(sites_list):
         node_features = [
-            i, 
+            # i, 
             site.properties["bonds_broken"], 
             site.properties["original_an"], 
             site.properties["new_an"], 
@@ -230,7 +230,7 @@ def get_c_graph(structure):
         try:
             ids = Element(symb).Z - 1
         except ValueError:
-            ids = 0
+            ids = 118
         the_ids.append(ids)
         ration = numb/total_sites
         the_ratios.append(ration)
@@ -261,8 +261,8 @@ def fast_graphy(dataset):
                 x=torch.tensor(nodes, dtype=torch.float),
                 edge_index=torch.tensor(edges, dtype=torch.long),
                 edge_attr=torch.tensor(edge_features, dtype=torch.float),
-                the_ids = torch.tensor(ids, dtype=torch.long).unsqueeze(0),
-                the_ratios = torch.tensor(ratios, dtype=torch.float).unsqueeze(0),
+                the_ids = torch.tensor(ids, dtype=torch.long), # .unsqueeze(0),
+                the_ratios = torch.tensor(ratios, dtype=torch.float), # .unsqueeze(0),
                 y=torch.tensor(the_target, dtype=torch.float).unsqueeze(0)
             )
                                     
